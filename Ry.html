@@ -1,0 +1,126 @@
+body {
+    margin: 0;
+    font-family: 'Changa', sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: linear-gradient(to bottom right, #ffdde1, #ffafbd); /* تدرج وردي ناعم */
+    color: #8b0000; /* أحمر غامق للنصوص */
+    overflow: hidden; /* لمنع ظهور شريط التمرير بسبب القلوب المتحركة */
+    position: relative;
+    direction: rtl; /* لجعل النص يبدأ من اليمين لليسار للعربية */
+}
+
+.container {
+    background-color: rgba(255, 255, 255, 0.9); /* خلفية بيضاء شبه شفافة */
+    padding: 40px 30px;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+    text-align: center;
+    max-width: 600px;
+    width: 90%;
+    position: relative;
+    z-index: 10;
+}
+
+h1 {
+    color: #d40000; /* أحمر مميز للعنوان */
+    font-size: 2.8em;
+    margin-bottom: 30px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.message-card, .love-notes {
+    background-color: #ffe4e1; /* وردي فاتح جداً للخلفية */
+    border-left: 5px solid #ff69b4; /* شريط وردي على اليسار */
+    padding: 20px;
+    margin: 25px 0;
+    border-radius: 15px;
+    font-size: 1.4em;
+    line-height: 1.8;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+}
+
+.message-card p, .love-notes p {
+    margin: 10px 0;
+}
+
+.love-notes {
+    font-style: italic;
+    color: #b22222; /* لون أحمر أغمق قليلاً */
+    font-size: 1.3em;
+}
+
+.signature {
+    margin-top: 40px;
+    font-size: 1.5em;
+    color: #d40000;
+    font-weight: bold;
+}
+
+/* 💖 تأثير القلوب المتساقطة في الخلفية 💖 */
+.heart {
+    position: absolute;
+    background-color: #ff69b4; /* وردي ساخن */
+    transform: rotate(-45deg);
+    animation: floatHeart 10s infinite ease-in;
+    z-index: 1; /* لتكون خلف المحتوى */
+}
+
+.heart::before, .heart::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: #ff69b4;
+    border-radius: 50%;
+}
+
+.heart::before {
+    top: -50%;
+    left: 0;
+}
+
+.heart::after {
+    left: 50%;
+    top: 0;
+}
+
+/* أحجام مختلفة للقلوب */
+.heart:nth-child(1) { width: 30px; height: 30px; left: 10%; animation-duration: 12s; animation-delay: 0s; }
+.heart:nth-child(2) { width: 20px; height: 20px; left: 70%; animation-duration: 9s; animation-delay: 3s; }
+.heart:nth-child(3) { width: 40px; height: 40px; left: 40%; animation-duration: 15s; animation-delay: 6s; }
+.heart:nth-child(4) { width: 25px; height: 25px; left: 25%; animation-duration: 11s; animation-delay: 2s; }
+.heart:nth-child(5) { width: 35px; height: 35px; left: 85%; animation-duration: 13s; animation-delay: 5s; }
+.heart:nth-child(6) { width: 28px; height: 28px; left: 55%; animation-duration: 10s; animation-delay: 1s; }
+.heart:nth-child(7) { width: 22px; height: 22px; left: 5%; animation-duration: 14s; animation-delay: 4s; }
+/* إضافة المزيد من القلوب بشكل ديناميكي من JavaScript */
+
+
+@keyframes floatHeart {
+    0% {
+        transform: translateY(100vh) rotate(-45deg);
+        opacity: 0;
+    }
+    20% {
+        opacity: 0.8;
+    }
+    100% {
+        transform: translateY(-100%) rotate(-45deg);
+        opacity: 0;
+    }
+}
+
+/* تأثير تحليق القلوب عند التحويم على البطاقات */
+.message-card:hover, .love-notes:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+    transition: all 0.3s ease;
+}
+
+/* تأثيرات بسيطة عند التحويم على الأزرار/الروابط إذا كانت موجودة */
+button:hover, a:hover {
+    transform: scale(1.05);
+    transition: transform 0.2s ease;
+}
