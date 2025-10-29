@@ -1,0 +1,26 @@
+document.addEventListener('DOMContentLoaded', () => {
+    // هذه الدالة ستضيف قلوبًا إضافية متحركة في الخلفية
+    const createHeart = () => {
+        const heart = document.createElement('div');
+        heart.classList.add('heart');
+        document.body.appendChild(heart);
+
+        heart.style.left = Math.random() * 100 + 'vw';
+        heart.style.animationDuration = Math.random() * 8 + 7 + 's'; // من 7 إلى 15 ثانية
+        heart.style.animationDelay = Math.random() * 5 + 's'; // تأخير عشوائي
+        heart.style.width = Math.random() * 30 + 20 + 'px'; // حجم من 20 إلى 50 بكسل
+        heart.style.height = heart.style.width;
+
+        heart.addEventListener('animationend', () => {
+            heart.remove(); // إزالة القلب بعد انتهاء التحريك
+        });
+    };
+
+    // إنشاء بعض القلوب في البداية
+    for (let i = 0; i < 15; i++) {
+        createHeart();
+    }
+
+    // إنشاء قلوب جديدة بشكل مستمر
+    setInterval(createHeart, 800); // كل 0.8 ثانية
+});
